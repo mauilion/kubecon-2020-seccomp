@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: fine-pod
+  labels:
+    app: fine-pod
+  annotations:
+    seccomp.security.alpha.kubernetes.io/pod: localhost/operator/demo-profile/fine-grained.json
+spec:
+  containers:
+  - name: echo-server
+    image: mauilion/echo-server:stable
+    securityContext:
+      allowPrivilegeEscalation: false

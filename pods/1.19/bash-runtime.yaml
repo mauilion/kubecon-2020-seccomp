@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: run-pod
+  labels:
+    app: run-pod
+spec:
+  containers:
+  - name: echo-server
+    image: mauilion/amicontained-pause:stable
+    securityContext:
+      seccompProfile:
+        type: RuntimeDefault
+      allowPrivilegeEscalation: false
